@@ -1,24 +1,27 @@
 package com.devsuperior.dscatalog.products.domain.service;
 
+import com.devsuperior.dscatalog.products.domain.dto.CategoryRequestDTO;
 import com.devsuperior.dscatalog.products.domain.dto.CategoryResponseDTO;
 import com.devsuperior.dscatalog.products.domain.entity.Category;
 import com.devsuperior.dscatalog.products.domain.exceptions.EntityNotFoundException;
+import com.devsuperior.dscatalog.products.domain.mapper.CategoryMapper;
 import com.devsuperior.dscatalog.products.repository.CategoryRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
 
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
         this.categoryRepository = categoryRepository;
+        this.categoryMapper = categoryMapper;
     }
 
     @Transactional(readOnly = true)
@@ -39,4 +42,10 @@ public class CategoryService {
         return new CategoryResponseDTO(entity);
     }
 
+    @Transactional
+    public CategoryResponseDTO insert(@Valid CategoryRequestDTO dto) {
+        Category category = categoryMapper.toEntity(dto);
+        category = categoryRepository.save(category);
+        return categoryMapper.toDTO(category);
+    }
 }
