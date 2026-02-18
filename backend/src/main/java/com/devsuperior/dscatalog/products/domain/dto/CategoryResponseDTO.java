@@ -1,7 +1,5 @@
 package com.devsuperior.dscatalog.products.domain.dto;
 
-import com.devsuperior.dscatalog.products.domain.entity.Category;
-
 import java.time.Instant;
 
 public record CategoryResponseDTO(
@@ -10,7 +8,4 @@ public record CategoryResponseDTO(
         Instant createdAt,
         Instant updatedAt
 ) {
-    public CategoryResponseDTO(Category entity) {
-        this(entity.getId(), entity.getName(), entity.getCreatedAt(), entity.getUpdatedAt());
-    }
 }

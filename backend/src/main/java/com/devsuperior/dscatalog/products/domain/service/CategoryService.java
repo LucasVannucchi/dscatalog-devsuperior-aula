@@ -14,8 +14,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @Service
 public class CategoryService {
 
@@ -30,17 +28,14 @@ public class CategoryService {
     @Transactional(readOnly = true)
     public Page<CategoryResponseDTO> findAllPaged(PageRequest pageRequest) {
         Page<Category> list = categoryRepository.findAll(pageRequest);
-
-        return list
-                .map(CategoryResponseDTO::new);
+        return list.map(categoryMapper::toDTO);
     }
 
     @Transactional(readOnly = true)
     public CategoryResponseDTO findById(Long id) {
-        Optional<Category> cat = categoryRepository.findById(id);
-        Category entity = cat.orElseThrow(() ->
-                new ResourceNotFoundException("Category not found with Id: " + id));
-        return new CategoryResponseDTO(entity);
+        Category entity = categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found with Id: " + id));
+        return categoryMapper.toDTO(entity);
     }
 
     @Transactional
@@ -64,7 +59,6 @@ public class CategoryService {
 
     @Transactional
     public void delete(Long id) {
-
         if (!categoryRepository.existsById(id)) {
             throw new ResourceNotFoundException("Id: " + id + " not found");
         }
