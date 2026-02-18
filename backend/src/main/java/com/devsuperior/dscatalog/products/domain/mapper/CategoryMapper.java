@@ -25,7 +25,9 @@ public class CategoryMapper {
 
         return new CategoryResponseDTO(
                 category.getId(),
-                category.getName()
+                category.getName(),
+                category.getCreatedAt(),
+                category.getUpdatedAt()
         );
     }
 }
