@@ -69,4 +69,10 @@ public class CategoryService {
             throw new DatabaseException("Integrity violation");
         }
     }
+
+    @Transactional(readOnly = true)
+    public Category getReference(Long id) {
+        return categoryRepository.getReferenceById(id);
+    }
+
 }
