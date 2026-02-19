@@ -1,0 +1,78 @@
+package com.devsuperior.dscatalog.modulo01.products.domain.service;
+
+import com.devsuperior.dscatalog.modulo01.products.domain.dto.CategoryRequestDTO;
+import com.devsuperior.dscatalog.modulo01.products.domain.dto.CategoryResponseDTO;
+import com.devsuperior.dscatalog.modulo01.products.domain.entity.Category;
+import com.devsuperior.dscatalog.modulo01.products.domain.exceptions.DatabaseException;
+import com.devsuperior.dscatalog.modulo01.products.domain.exceptions.ResourceNotFoundException;
+import com.devsuperior.dscatalog.modulo01.products.domain.mapper.CategoryMapper;
+import com.devsuperior.dscatalog.modulo01.products.repository.CategoryRepository;
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class CategoryService {
+
+    private final CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
+
+    public CategoryService(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
+        this.categoryRepository = categoryRepository;
+        this.categoryMapper = categoryMapper;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<CategoryResponseDTO> findAllPaged(PageRequest pageRequest) {
+        Page<Category> list = categoryRepository.findAll(pageRequest);
+        return list.map(categoryMapper::toDTO);
+    }
+
+    @Transactional(readOnly = true)
+    public CategoryResponseDTO findById(Long id) {
+        Category entity = categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found with Id: " + id));
+        return categoryMapper.toDTO(entity);
+    }
+
+    @Transactional
+    public CategoryResponseDTO insert(CategoryRequestDTO dto) {
+        Category category = categoryMapper.toEntity(dto);
+        category = categoryRepository.save(category);
+        return categoryMapper.toDTO(category);
+    }
+
+    @Transactional
+    public CategoryResponseDTO update(Long id, CategoryRequestDTO dto) {
+        try {
+            Category category = categoryRepository.getReferenceById(id);
+            category.setName(dto.name());
+            category = categoryRepository.save(category);
+            return categoryMapper.toDTO(category);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Id: " + id + " not found");
+        }
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        if (!categoryRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Id: " + id + " not found");
+        }
+
+        try {
+            categoryRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Integrity violation");
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public Category getReference(Long id) {
+        return categoryRepository.getReferenceById(id);
+    }
+
+}
