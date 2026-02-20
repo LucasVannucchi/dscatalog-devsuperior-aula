@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -25,6 +32,13 @@
     &quot;accountId&quot;: &quot;d9179ad1-b8ef-430d-a75b-bd92daf0f51f&quot;
   }
 }</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -36,8 +50,19 @@
   "keyToString": {
     "Application.DscatalogApplication.executor": "Run",
     "Application.DscatalogApplicationModulo2.executor": "Run",
+    "JUnit.DscatalogApplicationModulo2Tests.executor": "Run",
+    "JUnit.ProductRepositoryTest.deleteShouldDeleteObjectWhenIdExists.executor": "Run",
+    "JUnit.ProductRepositoryTest.deleteShouldThrowEmptyResultDataAccessExcpetionWhenIdDoesNotExists.executor": "Run",
+    "JUnit.ProductRepositoryTest.executor": "Run",
+    "JUnit.ProductRepositoryTest.findByIdShouldReturnEmptyOptionalWhenIdDoesNotExist.executor": "Run",
+    "JUnit.ProductRepositoryTest.findByIdShouldReturnProductWhenIdExists.executor": "Run",
+    "JUnit.ProductRepositoryTest.getReferenceShouldThrowEntityNotFoundExceptionWhenIdDoesNotExist.executor": "Run",
+    "JUnit.ProductRepositoryTest.getShouldReturnProductByIdWhenIdExists.executor": "Run",
+    "JUnit.ProductRepositoryTest.getShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExists.executor": "Run",
+    "JUnit.ProductRepositoryTest.saveShouldPersistWithAutoincrementWhenIdIsNull.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -51,23 +76,94 @@
       <recent name="C:\ws-bootcamp\dscatalog\aula-junit" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="DscatalogApplicationModulo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalog.DscatalogApplicationModulo2" />
+  <component name="RunManager" selected="JUnit.ProductRepositoryTest.findByIdShouldReturnEmptyOptionalWhenIdDoesNotExist">
+    <configuration name="ProductRepositoryTest.findByIdShouldReturnEmptyOptionalWhenIdDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="dscatalog (1)" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.devsuperior.dscatalog.*" />
+          <option name="PATTERN" value="com.devsuperior.dscatalogModulo2.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalogModulo2.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalogModulo2.repository.ProductRepositoryTest" />
+      <option name="METHOD_NAME" value="findByIdShouldReturnEmptyOptionalWhenIdDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductRepositoryTest.findByIdShouldReturnProductWhenIdExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalogModulo2.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalogModulo2.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalogModulo2.repository.ProductRepositoryTest" />
+      <option name="METHOD_NAME" value="findByIdShouldReturnProductWhenIdExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductRepositoryTest.getReferenceShouldThrowEntityNotFoundExceptionWhenIdDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalogModulo2.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalogModulo2.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalogModulo2.repository.ProductRepositoryTest" />
+      <option name="METHOD_NAME" value="getReferenceShouldThrowEntityNotFoundExceptionWhenIdDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductRepositoryTest.getShouldReturnProductByIdWhenIdExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalogModulo2.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalogModulo2.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalogModulo2.repository.ProductRepositoryTest" />
+      <option name="METHOD_NAME" value="getShouldReturnProductByIdWhenIdExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductRepositoryTest.getShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dscatalog (1)" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsuperior.dscatalogModulo2.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsuperior.dscatalogModulo2.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.devsuperior.dscatalogModulo2.repository.ProductRepositoryTest" />
+      <option name="METHOD_NAME" value="getShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DscatalogApplicationModulo2" />
+        <item itemvalue="JUnit.ProductRepositoryTest.findByIdShouldReturnEmptyOptionalWhenIdDoesNotExist" />
+        <item itemvalue="JUnit.ProductRepositoryTest.findByIdShouldReturnProductWhenIdExists" />
+        <item itemvalue="JUnit.ProductRepositoryTest.getReferenceShouldThrowEntityNotFoundExceptionWhenIdDoesNotExist" />
+        <item itemvalue="JUnit.ProductRepositoryTest.getShouldThrowEmptyResultDataAccessExceptionWhenIdDoesNotExists" />
+        <item itemvalue="JUnit.ProductRepositoryTest.getShouldReturnProductByIdWhenIdExists" />
       </list>
     </recent_temporary>
   </component>
